@@ -1,7 +1,11 @@
 let correct = 0;
 let incorrect = 0;
+let flag = 0;
 
 async function pgame() {
+    flag = 0;
+    resetStopwatch();
+    startStopwatch();
     var inputContainer = document.getElementById("input-container");
     inputContainer.innerHTML = "";
     correct = 0;
@@ -64,7 +68,12 @@ function retrieveInput(i,p,n,c) {
                 incorrect++;
             }
             counts.innerHTML = "Correct: " + correct + " Incorrect: " + incorrect;
-
+            
+            if(i==10){
+                stopStopwatch();
+                flag = -1;
+            }
+            
             resolve(userInput);
         };
         
@@ -83,4 +92,60 @@ function retrieveInput(i,p,n,c) {
         input = Number(input);
         return correct >= (input - 2.5) && correct <= (input + 2.5) ? true: false;
     }
+}
+
+function pause(){
+    if(flag != (-1)){
+        if(flag%2==0)
+        {
+            stopStopwatch();
+        }
+        else{
+            startStopwatch();
+        }
+        flag++;
+    }
+}
+
+
+
+
+//timer related scripts here
+
+var startTime; // to keep track of the start time
+var stopwatchInterval; // to keep track of the interval
+var elapsedPausedTime = 0; // to keep track of the elapsed time while stopped
+
+function startStopwatch() {
+  if (!stopwatchInterval) {
+    startTime = new Date().getTime() - elapsedPausedTime; // get the starting time by subtracting the elapsed paused time from the current time
+    stopwatchInterval = setInterval(updateStopwatch, 1000); // update every second
+  }
+}
+
+function stopStopwatch() {
+  clearInterval(stopwatchInterval); // stop the interval
+  elapsedPausedTime = new Date().getTime() - startTime; // calculate elapsed paused time
+  stopwatchInterval = null; // reset the interval variable
+}
+
+function resetStopwatch() {
+  stopStopwatch(); // stop the interval
+  elapsedPausedTime = 0; // reset the elapsed paused time variable
+  document.getElementById("stopwatch").innerHTML = "00:00:00"; // reset the display
+}
+
+function updateStopwatch() {
+  var currentTime = new Date().getTime(); // get current time in milliseconds
+  var elapsedTime = currentTime - startTime; // calculate elapsed time in milliseconds
+  var seconds = Math.floor(elapsedTime / 1000) % 60; // calculate seconds
+  var minutes = Math.floor(elapsedTime / 1000 / 60) % 60; // calculate minutes
+  var hours = Math.floor(elapsedTime / 1000 / 60 / 60); // calculate hours
+  var displayTime = pad(hours) + ":" + pad(minutes) + ":" + pad(seconds); // format display time
+  document.getElementById("stopwatch").innerHTML = displayTime; // update the display
+}
+
+function pad(number) {
+  // add a leading zero if the number is less than 10
+  return (number < 10 ? "0" : "") + number;
 }

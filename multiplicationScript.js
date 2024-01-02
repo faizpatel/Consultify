@@ -72,6 +72,7 @@ function retrieveInput(i,p,n,c) {
             resolve(userInput);
             if(i==10){
                 stopStopwatch();
+                flag = -1;
             }
         };
         
@@ -93,15 +94,21 @@ function retrieveInput(i,p,n,c) {
 }
 
 function pause(){
-    if(flag%2==0)
-    {
-        stopStopwatch();
+    if(flag != (-1)){
+        if(flag%2==0)
+        {
+            stopStopwatch();
+        }
+        else{
+            startStopwatch();
+        }
+        flag++;
     }
-    else{
-        startStopwatch();
-    }
-    flag++;
 }
+
+
+
+//timer related scripts here
 
 var startTime; // to keep track of the start time
 var stopwatchInterval; // to keep track of the interval
