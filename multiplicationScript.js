@@ -58,6 +58,8 @@ function retrieveInput(i,p,n,c) {
             
             var userInput = document.getElementById(elementId).value;
             
+            if(userInput == "") {userInput = 0};
+
             answer.innerHTML = "You answered " + userInput + ", the correct answer is " + c + ".";
             
             if (determineCounts(c,userInput)){
