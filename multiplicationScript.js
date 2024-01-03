@@ -2,6 +2,12 @@ let correct = 0;
 let incorrect = 0;
 let flag = 0;
 
+function hs(){
+    document.getElementById('hs').innerHTML = 'High Score: ' + localStorage.getItem('highScore');
+}
+
+hs();
+
 async function pgame() {
     flag = 0;
     resetStopwatch();
@@ -54,29 +60,38 @@ function retrieveInput(i,p,n,c) {
         submitButton.textContent = "Submit";
         submitButton.className = "button-3";
         submitButton.onclick = function () {
-            submitButton.onclick = "";
-            
-            var userInput = document.getElementById(elementId).value;
-            
-            if(userInput == "") {userInput = 0};
 
-            answer.innerHTML = "You answered " + userInput + ", the correct answer is " + c + ".";
-            
-            if (determineCounts(c,userInput)){
-                correctionPrompt.innerHTML = "You answered correctly!";
-                correct++;
-            } else {
-                correctionPrompt.innerHTML = "That was incorrect!";
-                incorrect++;
-            }
-            counts.innerHTML = "Correct: " + correct + " Incorrect: " + incorrect;
+            if(flag % 2 == 0){
+                submitButton.onclick = "";
+                
+                var userInput = document.getElementById(elementId).value;
+                
+                if(userInput == "") {userInput = 0};
 
-            resolve(userInput);
-            if(i==10){
-                stopStopwatch();
-                flag = -1;
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                answer.innerHTML = "You answered " + userInput + ", the correct answer is " + c + ".";
+                
+                if (determineCounts(c,userInput)){
+                    correctionPrompt.innerHTML = "You answered correctly!";
+                    correct++;
+                } else {
+                    correctionPrompt.innerHTML = "That was incorrect!";
+                    incorrect++;
+                }
+                counts.innerHTML = "Correct: " + correct + " Incorrect: " + incorrect;
+
+                resolve(userInput);
+                if(i==10){
+                    stopStopwatch();
+                    flag = -1;
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    if(correct > localStorage.getItem('highScore')){
+                        localStorage.setItem('highScore',correct);
+                        document.getElementById('hs').innerHTML = 'High Score: ' + localStorage.getItem('highScore');
+                    }
+                }
+
             }
+
         };
         
         newContainer.appendChild(questionNumber);
