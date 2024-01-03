@@ -74,6 +74,7 @@ function retrieveInput(i,p,n,c) {
             if(i==10){
                 stopStopwatch();
                 flag = -1;
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
             
             resolve(userInput);
