@@ -94,7 +94,7 @@ function retrieveInput(i,p,n,c) {
 
                         old_time = localStorage.getItem('highTimeP');
                         new_time = elapsedPausedTime;
-                        if((new_time < old_time && old_score == new_score) || new_score > old_score) {
+                        if((new_time < old_time && old_score == new_score) || new_score > old_score || old_time == null) {
                             localStorage.setItem('highTimeP' , elapsedPausedTime);
                         }
                         new_time = localStorage.getItem('highTimeP');

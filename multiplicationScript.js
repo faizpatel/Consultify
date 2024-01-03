@@ -6,8 +6,6 @@ function hs(){
     if(localStorage.getItem('highScore')!=null && localStorage.getItem('highTime') != null)
     { document.getElementById('hs').innerHTML = 'High Score: ' + localStorage.getItem('highScore') + ' correct in ' + outputTime(localStorage.getItem('highTime'));}
     else {document.getElementById('hs').innerHTML = 'High Score: ';}
-
-
 }
 
 hs();
@@ -95,7 +93,7 @@ function retrieveInput(i,p,n,c) {
 
                         old_time = localStorage.getItem('highTime');
                         new_time = elapsedPausedTime;
-                        if((new_time < old_time && old_score == new_score) || new_score > old_score) {
+                        if((new_time < old_time && old_score == new_score) || new_score > old_score || old_time == null) {
                             localStorage.setItem('highTime' , elapsedPausedTime);
                         }
                         new_time = localStorage.getItem('highTime');
