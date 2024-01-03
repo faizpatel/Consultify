@@ -3,7 +3,11 @@ let incorrect = 0;
 let flag = 0;
 
 function hs(){
-    document.getElementById('hs').innerHTML = 'High Score: ' + localStorage.getItem('highScore');
+    if(localStorage.getItem('highScore')!=null && localStorage.getItem('highTime') != null)
+    { document.getElementById('hs').innerHTML = 'High Score: ' + localStorage.getItem('highScore') + ' correct in ' + outputTime(localStorage.getItem('highTime'));}
+    else {document.getElementById('hs').innerHTML = 'High Score: ';}
+
+
 }
 
 hs();
@@ -84,9 +88,16 @@ function retrieveInput(i,p,n,c) {
                     stopStopwatch();
                     flag = -1;
                     window.scrollTo({ top: 0, behavior: 'smooth' });
-                    if(correct > localStorage.getItem('highScore')){
+                    if((correct > localStorage.getItem('highScore') || (localStorage.getItem('highScore') == null))){
                         localStorage.setItem('highScore',correct);
-                        document.getElementById('hs').innerHTML = 'High Score: ' + localStorage.getItem('highScore');
+                        //localStorage.setItem('highTime',elapsedPausedTime);
+                        if(compareTimes()) {
+                            document.getElementById('hs').innerHTML = 'High Score: ' + localStorage.getItem('highScore') + ' correct in ' + outputTime(localStorage.getItem('highTime'));
+                            localStorage.setItem('highTime',elapsedPausedTime);
+                        } else {
+                            document.getElementById('hs').innerHTML = 'High Score: ' + localStorage.getItem('highScore') + ' correct in ' + outputTime(elapsedPausedTime);
+                            localStorage.setItem('highTime',elapsedPausedTime);
+                        }
                     }
                 }
 
@@ -158,9 +169,24 @@ function updateStopwatch() {
   var minutes = Math.floor(elapsedTime / 1000 / 60) % 60; // calculate minutes
   var hours = Math.floor(elapsedTime / 1000 / 60 / 60); // calculate hours
   var displayTime = pad(hours) + ":" + pad(minutes) + ":" + pad(seconds); // format display time
-  document.getElementById("stopwatch").innerHTML = displayTime; // update the display
+  document.getElementById("stopwatch").innerHTML = displayTime; 
 }
 
+function outputTime(time){
+        let seconds = Math.floor(time / 1000) % 60; // calculate seconds
+        let minutes = Math.floor(time / 1000 / 60) % 60; // calculate minutes
+        let hours = Math.floor(time / 1000 / 60 / 60); // calculate hours
+        let  DT = pad(hours) + ":" + pad(minutes) + ":" + pad(seconds); // format display time
+        return DT;
+    }
+function compareTimes() {
+    if (elapsedPausedTime < localStorage.getItem('highTime')){
+        return true;
+    } else{
+        return false;
+    }
+  }
+  
 function pad(number) {
   // add a leading zero if the number is less than 10
   return (number < 10 ? "0" : "") + number;
