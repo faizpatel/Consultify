@@ -88,16 +88,21 @@ function retrieveInput(i,p,n,c) {
                     stopStopwatch();
                     flag = -1;
                     window.scrollTo({ top: 0, behavior: 'smooth' });
-                    if((correct > localStorage.getItem('highScore') || (localStorage.getItem('highScore') == null))){
-                        localStorage.setItem('highScore',correct);
-                        //localStorage.setItem('highTime',elapsedPausedTime);
-                        if(compareTimes()) {
-                            document.getElementById('hs').innerHTML = 'High Score: ' + localStorage.getItem('highScore') + ' correct in ' + outputTime(localStorage.getItem('highTime'));
-                            localStorage.setItem('highTime',elapsedPausedTime);
-                        } else {
-                            document.getElementById('hs').innerHTML = 'High Score: ' + localStorage.getItem('highScore') + ' correct in ' + outputTime(elapsedPausedTime);
-                            localStorage.setItem('highTime',elapsedPausedTime);
+                    if((correct >= localStorage.getItem('highScore') || (localStorage.getItem('highScore') == null))){
+                        old_score = localStorage.getItem('highScore')
+                        localStorage.setItem('highScore' , correct);
+                        new_score = localStorage.getItem('highScore')
+
+                        old_time = localStorage.getItem('highTime');
+                        new_time = elapsedPausedTime;
+                        if((new_time < old_time && old_score == new_score) || new_score > old_score) {
+                            localStorage.setItem('highTime' , elapsedPausedTime);
                         }
+                        new_time = localStorage.getItem('highTime');
+
+
+                        document.getElementById('hs').innerHTML = 'High Score: ' + new_score + ' correct in ' + outputTime(new_time);
+
                     }
                 }
 
