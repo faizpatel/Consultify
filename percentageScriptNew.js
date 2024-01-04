@@ -131,9 +131,11 @@ function pause(){
         if(flag%2==0)
         {
             stopStopwatch();
+            document.getElementById("pause").innerHTML = "Start";
         }
         else{
             startStopwatch();
+            document.getElementById("pause").innerHTML = "Pause";
         }
         flag++;
     }

@@ -129,10 +129,14 @@ function pause(){
     if(flag != (-1)){
         if(flag%2==0)
         {
-            stopStopwatch();
+            stopStopwatch();            
+            document.getElementById("pause").innerHTML = "Start";
+
         }
         else{
             startStopwatch();
+            document.getElementById("pause").innerHTML = "Pause";
+
         }
         flag++;
     }
