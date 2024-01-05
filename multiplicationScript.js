@@ -69,14 +69,15 @@ function retrieveInput(i,p,n,c) {
                 var userInput = document.getElementById(elementId).value;
                 
                 if(userInput == "") {userInput = 0};
-
-                answer.innerHTML = "You answered " + userInput + ", the correct answer is " + c + ".";
                 
                 if (determineCounts(c,userInput)){
                     correctionPrompt.innerHTML = "You answered correctly!";
+                    correctionPrompt.style.color = "green";
                     correct++;
                 } else {
+                    answer.innerHTML = "You answered " + userInput + ", the correct answer is " + c + ".";
                     correctionPrompt.innerHTML = "That was incorrect!";
+                    correctionPrompt.style.color = "red";
                     incorrect++;
                 }
                 counts.innerHTML = "Correct: " + correct + " Incorrect: " + incorrect;
