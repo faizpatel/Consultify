@@ -11,6 +11,7 @@ function hs(){
 hs();
 
 async function pgame() {
+    document.getElementById("summary").innerHTML= ""; 
     flag = 0;
     resetStopwatch();
     startStopwatch();
@@ -101,8 +102,12 @@ function retrieveInput(i,p,n,c) {
 
 
                         document.getElementById('hs').innerHTML = 'High Score: ' + new_score + ' correct in ' + outputTime(new_time);
+                        
+
 
                     }
+                    document.getElementById("summary").innerHTML = "You got " + correct + " correct and " + incorrect + " incorrect.";
+                    document.getElementById("summary").style.alignContent = "center";
                 }
 
             }
