@@ -10,6 +10,18 @@
     
 }
 
+.circular-image {
+    border-radius: 50%;
+    width: 150px; /* Set your preferred width */
+    height: 150px; /* Set your preferred height */
+    object-fit: cover; /* Optional: Maintain the aspect ratio and cover the entire container */
+    display: block; /* Ensure the image is treated as a block element */
+}
+.ab {
+    font-family: 'Arial';
+    margin-right: 600px;
+    margin-left: 600px;
+}
 
 .logo-container {
     display: flex;
