@@ -172,26 +172,26 @@ function stopStopwatch() {
 }
 
 function resetStopwatch() {
-  stopStopwatch(); // stop the interval
-  elapsedPausedTime = 0; // reset the elapsed paused time variable
-  document.getElementById("stopwatch").innerHTML = "00:00:00"; // reset the display
+  stopStopwatch(); 
+  elapsedPausedTime = 0; 
+  document.getElementById("stopwatch").innerHTML = "00:00:00"; 
 }
 
 function updateStopwatch() {
-  var currentTime = new Date().getTime(); // get current time in milliseconds
-  var elapsedTime = currentTime - startTime; // calculate elapsed time in milliseconds
-  var seconds = Math.floor(elapsedTime / 1000) % 60; // calculate seconds
-  var minutes = Math.floor(elapsedTime / 1000 / 60) % 60; // calculate minutes
-  var hours = Math.floor(elapsedTime / 1000 / 60 / 60); // calculate hours
-  var displayTime = pad(hours) + ":" + pad(minutes) + ":" + pad(seconds); // format display time
+  var currentTime = new Date().getTime(); 
+  var elapsedTime = currentTime - startTime; 
+  var seconds = Math.floor(elapsedTime / 1000) % 60; 
+  var minutes = Math.floor(elapsedTime / 1000 / 60) % 60; 
+  var hours = Math.floor(elapsedTime / 1000 / 60 / 60); 
+  var displayTime = pad(hours) + ":" + pad(minutes) + ":" + pad(seconds);
   document.getElementById("stopwatch").innerHTML = displayTime; 
 }
 
 function outputTime(time){
-        let seconds = Math.floor(time / 1000) % 60; // calculate seconds
-        let minutes = Math.floor(time / 1000 / 60) % 60; // calculate minutes
-        let hours = Math.floor(time / 1000 / 60 / 60); // calculate hours
-        let  DT = pad(hours) + ":" + pad(minutes) + ":" + pad(seconds); // format display time
+        let seconds = Math.floor(time / 1000) % 60; 
+        let minutes = Math.floor(time / 1000 / 60) % 60; 
+        let hours = Math.floor(time / 1000 / 60 / 60);
+        let  DT = pad(hours) + ":" + pad(minutes) + ":" + pad(seconds);
         return DT;
     }
 function compareTimes() {
@@ -203,6 +203,5 @@ function compareTimes() {
   }
   
 function pad(number) {
-  // add a leading zero if the number is less than 10
   return (number < 10 ? "0" : "") + number;
 }

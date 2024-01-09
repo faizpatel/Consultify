@@ -1,16 +1,16 @@
-<!-- index.html -->
+<!-- percentages.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Consultify</title>
     <link rel="shortcut icon" type="image/png" href="Assets/consultify_icon.png"/>
 </head>
 <body>
 
+    <!-- Include the navbar using JavaScr ipt -->
     <nav class="navbar">
         <div class="logo-container">
             <h1><a href = 'index.html'>Consultify</a></h1>
@@ -22,10 +22,19 @@
             <a href="contact.html"><li>Contact</li></a>
         </ul>
     </nav>
-    <div class = "main-buttons">
-        <center><a href = "percentages.html"><button style="margin-top: 20px;"type="button" class = "button-3" >Percentages Practice</button></a></center>
-        <center><a href = "multiplication.html"><button style="margin-top: 20px;"type="button" class = "button-3" >Multiplication Practice</button></a></center>
+
+    <center><h2>Contact</h2></center>
+    <div class = "form">
+        <input name="name" type="text" class="feedback-input" id = "nameID" placeholder="Name" />   
+        <input name="email" type="text" class="feedback-input" placeholder="Email" />
+        <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
+        <input type="submit" value="SUBMIT" onclick = "contactSubmit()"/>
     </div>
+
+    <center><h3 id = "contact-submit"></h3></center>
+
+
+    <script src = "contact.js"></script>
 
 
 </body>
