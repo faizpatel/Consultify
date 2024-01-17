@@ -90,7 +90,7 @@ a{
 }
 
 .navbar ul li:hover {
-    color: #CC4949;
+    color: #2596be;
 }
 
 .button-container {
@@ -101,7 +101,7 @@ a{
 /* Incorporating the new button styles */
 .button-3 {
     appearance: none;
-    background-color: #2ea44f;
+    background-color: #00549f;
     border: 1px solid rgba(27, 31, 35, .15);
     border-radius: 6px;
     box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
@@ -130,7 +130,7 @@ a{
 }
 
 .button-3:hover {
-    background-color: #2c974b;
+    background-color: #2596be;
 }
 
 .button-3:focus {
@@ -139,14 +139,14 @@ a{
 }
 
 .button-3:disabled {
-    background-color: #94d3a2;
+    background-color: #2596be;
     border-color: rgba(27, 31, 35, .1);
     color: rgba(255, 255, 255, .8);
     cursor: default;
 }
 
 .button-3:active {
-    background-color: #298e46;
+    background-color: #2596be;
     box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
 }
 
@@ -189,7 +189,7 @@ h5 {
   border-radius: 5px;
   line-height: 22px;
   background-color: transparent;
-  border:2px solid #CC4949;
+  border:2px solid #00549f;
   transition: all 0.3s;
   padding: 13px;
   margin-bottom: 15px;
@@ -198,7 +198,7 @@ h5 {
   outline:0;
 }
 
-.feedback-input:focus { border:2px solid #298e46; }
+.feedback-input:focus { border:2px solid #2596be; }
 
 textarea {
   height: 150px;
@@ -209,7 +209,7 @@ textarea {
 [type="submit"] {
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
   width: 100%;
-  background:#CC4949;
+  background:#00549f;
   border-radius:5px;
   border:0;
   cursor:pointer;
@@ -221,7 +221,7 @@ textarea {
   margin-top:-4px;
   font-weight:700;
 }
-[type="submit"]:hover { background:#298e46; }
+[type="submit"]:hover { background:#2596be; }
 
 
 @media screen and (max-width: 600px) {

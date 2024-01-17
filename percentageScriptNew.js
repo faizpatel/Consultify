@@ -7,7 +7,7 @@ function hs(){
     { document.getElementById('hs').innerHTML = 'High Score: ' + localStorage.getItem('highScoreP') + ' correct in ' + outputTime(localStorage.getItem('highTimeP'));}
     else {document.getElementById('hs').innerHTML = 'High Score: ';}
 }
-
+  
 hs();
 
 async function pgame() {
