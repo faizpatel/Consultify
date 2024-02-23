@@ -1,11 +1,10 @@
-<!-- index.html -->
+<!-- percentages.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Consultify</title>
     <link rel="shortcut icon" type="image/png" href="Assets/consultify_icon.png"/>
 </head>
@@ -22,14 +21,24 @@
             <a href="contact.html"><li>Contact</li></a>
         </ul>
     </nav>
-    <div class = "main-buttons">
-        <center><a href = "percentages.html"><button style="margin-top: 20px; width: 175px;"type="button" class = "button-3" >Percentages Practice</button></a></center>
-        <center><a href = "multiplication.html"><button style="margin-top: 20px; width: 175px;"type="button" class = "button-3" >Multiplication Practice</button></a></center>
-        <center><a href = "addition.html"><button style="margin-top: 20px; width: 175px;"type="button" class = "button-3" >Addition Practice</button></a></center>
-        <center><a href = "subtraction.html"><button style="margin-top: 20px; width: 175px;"type="button" class = "button-3" >Subtraction Practice</button></a></center>
-       
-    </div>
 
+    <h2>Subtraction Practice</h2>
+    <center><h2 id = "stopwatch"></h4></center>
+    <div>
+        <center>
+            <button id = "start" class = "button-3" type="button" onclick="pgame()">Begin</button>
+            <a href = "index.html"><button class = "button-3" type="button">Back</button></a>
+            <button id = "pause" class = "button-3" type="button" onclick="pause()">Pause</button>
+        </center>
+    </div>
+    <center><br><h5 id = 'hs' class = "highscore" style = "color:blue;;"></h5>
+    <h3 id = "summary"></h3></center>
+    <h3 id = "q"> </h3>
+    <h4 id = "p"> </h4>
+
+    <div id="input-container"></div>
+
+    <script src="subtractionScript.js"></script>
 
 </body>
 </html>
