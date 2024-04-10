@@ -21,8 +21,8 @@ async function pgame() {
     incorrect = 0;
 
     for (let i = 1; i < 11; i++) {
-        let p = Math.floor(Math.random() * 13);
-        let n = Math.floor(Math.random() * 13);
+        let p = 1 + Math.floor(Math.random() * 12);
+        let n = 1 + Math.floor(Math.random() * 12);
 
         let correctAnswer = (p * n).toFixed(0); 
         let userInput = await retrieveInput(i,p,n,correctAnswer);
